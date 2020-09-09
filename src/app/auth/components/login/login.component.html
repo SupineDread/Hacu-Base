@@ -1,0 +1,22 @@
+<section>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Correo</mat-label>
+            <input type="email" matInput placeholder="Correo" formControlName="email">
+            <mat-icon matSuffix>alternate_email</mat-icon>
+            <mat-hint>Correo electrónico</mat-hint>
+            <mat-error>El correo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput placeholder="Contraseña" formControlName="password">
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-hint>Contraseña</mat-hint>
+            <mat-error>La contraseña es requerida</mat-error>
+        </mat-form-field>
+        <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary"
+            [disabled]="loginForm.invalid">Iniciar sesión</button>
+        <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+    </form>
+</section>

@@ -17,6 +17,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "firebase",
+              "@firebase/app",
+              "firebase/app",
+              "@firebase/database",
+              "@firebase/firestore",
+              "@firebase/auth",
+              "@firebase/functions",
+              "@firebase/performance",
+              "@firebase/remote-config"
+            ],
             "outputPath": "dist/hacuBase",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -121,8 +132,16 @@
               "devServerTarget": "hacuBase:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "hacuBase"
+    }
+  },
+  "defaultProject": "hacuBase",
+  "cli": {
+    "analytics": "347e6898-6033-4644-ac3b-5805c0d03618"
+  }
 }
